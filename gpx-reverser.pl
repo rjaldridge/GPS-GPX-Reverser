@@ -17,9 +17,6 @@ $fn_in = $fn_out = $ARGV[0];
 
 $fn_out =~ s/\.gpx/-reversed.gpx/;
 
-#print("fn_in = $fn_in\n");
-#print("fn_out = $fn_out\n");
-
 @gpx_points = ();
 
 open(INFILE,"<$fn_in");
@@ -33,13 +30,11 @@ while($line=<INFILE>) {
 	chomp($line);
 
 	if(!$in_point) {
-	
 		if($line =~ /<rtept/) {
 			$in_point = 1;
 			
 			$point = "$line\n";
 		} elsif ($line =~ /<\/rte>/) {
-			#print("<!-- Reversed GPS GPX Points -->\n");
 			
 			while($rv_point = pop(@gpx_points)) {
 				print OUTFILE "$rv_point";
@@ -58,7 +53,6 @@ while($line=<INFILE>) {
 			$in_point = 0;
 		} else {
 			$point .= "$line\n";
-
 		}
 	}
 }
@@ -67,6 +61,3 @@ close(OUTFILE);
 close(INFILE);
 
 exit(0);
-
-
-
