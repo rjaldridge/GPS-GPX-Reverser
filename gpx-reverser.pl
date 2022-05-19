@@ -7,7 +7,7 @@ Description : Takes a GPS GPX file and writes out a reverse route.
 Example     : perl $0 "Abinger Common.gpx"
 Author      : Richard Aldridge
 Created     : 10:34 19/05/2022
-Modified    : 10:34 19/05/2022
+Modified    : 11:12 19/05/2022
 ED
 
 	exit(1);
